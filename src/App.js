@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import ShoppingListPage from './pages/ShoppingListPage'
+import Header from './components/Header'
+import styled from 'styled-components'
 
 function App() {
+  const [shoppingListItems, setShoppingListItems] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <Header onSubmit={addItems} />
+      <ShoppingListPage
+        shoppingListItems={shoppingListItems}
+        onClick={removeItems}
+      />
+    </Container>
+  )
+
+  function addItems(text) {
+    setShoppingListItems([text, ...shoppingListItems])
+  }
+
+  function removeItems(title) {
+    console.log(title)
+    const index = shoppingListItems.findIndex((item) => item === title)
+    setShoppingListItems([
+      ...shoppingListItems.slice(0, index),
+      ...shoppingListItems.slice(index + 1),
+    ])
+  }
 }
 
-export default App;
+export default App
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
