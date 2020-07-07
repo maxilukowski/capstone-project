@@ -12,7 +12,6 @@ export default ({ listItem, onClick }) => {
 
 const Container = styled.div`
   display: flex;
-
   padding: 7px;
   justify-content: space-between;
 `

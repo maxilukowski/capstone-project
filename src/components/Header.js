@@ -29,9 +29,7 @@ const Container = styled.div`
   background: var(--primary);
   min-height: 100px;
   top: 0;
-
   width: 100vw;
-
   box-shadow: 0 0 10px var(--primary);
 
   input {

@@ -21,11 +21,13 @@ function App() {
   }
 
   function removeItems(title) {
-    const index = shoppingListItems.findIndex((item) => item === title)
+    const indexOfItemToRemove = shoppingListItems.findIndex(
+      (item) => item === title
+    )
 
     setShoppingListItems([
-      ...shoppingListItems.slice(0, index),
-      ...shoppingListItems.slice(index + 1),
+      ...shoppingListItems.slice(0, indexOfItemToRemove),
+      ...shoppingListItems.slice(indexOfItemToRemove + 1),
     ])
   }
 }

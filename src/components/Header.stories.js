@@ -7,7 +7,7 @@ export default {
   component: Header,
 }
 
-export const Headercomponent = () => (
+export const HeaderComponent = () => (
   <>
     <GlobalStyles />
     <Header />

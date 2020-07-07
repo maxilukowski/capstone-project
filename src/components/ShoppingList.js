@@ -7,7 +7,11 @@ export default ({ shoppingListItems, onClick }) => {
   return (
     <Container>
       {shoppingListItems.map((listItem, index) => (
-        <ShoppingListItem key={index} listItem={listItem} onClick={onClick} />
+        <ShoppingListItem
+          key={index + listItem}
+          listItem={listItem}
+          onClick={onClick}
+        />
       ))}
     </Container>
   )
