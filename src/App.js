@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ShoppingListPage from './pages/ShoppingListPage'
+import ShoppingList from './components/ShoppingList'
 import Header from './components/Header'
 import styled from 'styled-components'
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <Container>
       <Header onSubmit={addItems} />
-      <ShoppingListPage
+      <ShoppingList
         shoppingListItems={shoppingListItems}
         onClick={removeItems}
       />
@@ -21,8 +21,8 @@ function App() {
   }
 
   function removeItems(title) {
-    console.log(title)
     const index = shoppingListItems.findIndex((item) => item === title)
+
     setShoppingListItems([
       ...shoppingListItems.slice(0, index),
       ...shoppingListItems.slice(index + 1),

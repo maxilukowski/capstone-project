@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 export default ({ listItem, onClick }) => {
   return (
-    <Container>
-      <div onClick={() => onClick(listItem)}>{listItem}</div>
+    <Container onClick={() => onClick(listItem)}>
+      <div>{listItem}</div>
       <input type='checkbox' />
     </Container>
   )

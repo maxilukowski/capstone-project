@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ShoppingListItem from '../components/ShoppingListItem'
+import ShoppingListItem from './ShoppingListItem'
 import styled from 'styled-components'
 
 export default ({ shoppingListItems, onClick }) => {
