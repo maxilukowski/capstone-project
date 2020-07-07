@@ -5,6 +5,8 @@ import styled from 'styled-components'
 
 function App() {
   const [shoppingListItems, setShoppingListItems] = useState([])
+  const [secondListItems, setSecondListItems] = useState([])
+  const [newId, setNewId] = useState(0)
 
   return (
     <Container>
@@ -13,11 +15,14 @@ function App() {
         shoppingListItems={shoppingListItems}
         onClick={removeItems}
       />
+
+      <ShoppingList shoppingListItems={secondListItems} onClick={removeItems} />
     </Container>
   )
 
-  function addItems(text) {
-    setShoppingListItems([text, ...shoppingListItems])
+  function addItems(title) {
+    setNewId(newId + 1)
+    setShoppingListItems([{ title, id: newId }, ...shoppingListItems])
   }
 
   function removeItems(title) {
@@ -29,6 +34,8 @@ function App() {
       ...shoppingListItems.slice(0, indexOfItemToRemove),
       ...shoppingListItems.slice(indexOfItemToRemove + 1),
     ])
+
+    setSecondListItems([title, ...secondListItems])
   }
 }
 

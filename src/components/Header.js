@@ -14,9 +14,8 @@ export default ({ onSubmit }) => {
   )
   function formSubmit(event) {
     event.preventDefault()
-    const text = event.target.input.value
-
-    onSubmit(text)
+    const title = event.target.input.value
+    onSubmit(title)
     event.target.reset()
   }
 }
