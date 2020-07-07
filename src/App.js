@@ -3,29 +3,32 @@ import ShoppingList from './components/ShoppingList'
 import Header from './components/Header'
 import styled from 'styled-components'
 
+let initialId = 0
+
 function App() {
   const [shoppingListItems, setShoppingListItems] = useState([])
   const [secondListItems, setSecondListItems] = useState([])
-  const [newId, setNewId] = useState(0)
 
+  console.log(initialId)
   return (
     <Container>
       <Header onSubmit={addItems} />
+      <ShoppingList shoppingListItems={shoppingListItems} onClick={swapItems} />
+      {secondListItems.length < 1 ? null : <p>recently checked</p>}
       <ShoppingList
-        shoppingListItems={shoppingListItems}
-        onClick={removeItems}
+        shoppingListItems={secondListItems}
+        onClick={swapItemsBack}
       />
-
-      <ShoppingList shoppingListItems={secondListItems} onClick={removeItems} />
     </Container>
   )
 
   function addItems(title) {
-    setNewId(newId + 1)
-    setShoppingListItems([{ title, id: newId }, ...shoppingListItems])
+    initialId++
+
+    setShoppingListItems([{ title, id: initialId }, ...shoppingListItems])
   }
 
-  function removeItems(title) {
+  function swapItems(title) {
     const indexOfItemToRemove = shoppingListItems.findIndex(
       (item) => item === title
     )
@@ -36,6 +39,19 @@ function App() {
     ])
 
     setSecondListItems([title, ...secondListItems])
+  }
+
+  function swapItemsBack(title) {
+    const indexOfItemToRemove = secondListItems.findIndex(
+      (item) => item === title
+    )
+
+    setSecondListItems([
+      ...secondListItems.slice(0, indexOfItemToRemove),
+      ...secondListItems.slice(indexOfItemToRemove + 1),
+    ])
+
+    setShoppingListItems([title, ...shoppingListItems])
   }
 }
 
