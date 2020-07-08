@@ -7,16 +7,16 @@ let initialId = 0
 
 function App() {
   const [shoppingListItems, setShoppingListItems] = useState([])
-  const [secondListItems, setSecondListItems] = useState([])
+  const [checkedListItems, setcheckedListItems] = useState([])
 
   console.log(initialId)
   return (
     <Container>
       <Header onSubmit={addItems} />
       <ShoppingList shoppingListItems={shoppingListItems} onClick={swapItems} />
-      {secondListItems.length < 1 ? null : <p>recently checked</p>}
+      {checkedListItems.length < 1 ? null : <p>recently checked</p>}
       <ShoppingList
-        shoppingListItems={secondListItems}
+        shoppingListItems={checkedListItems}
         onClick={swapItemsBack}
       />
     </Container>
@@ -38,17 +38,17 @@ function App() {
       ...shoppingListItems.slice(indexOfItemToRemove + 1),
     ])
 
-    setSecondListItems([title, ...secondListItems])
+    setcheckedListItems([title, ...checkedListItems])
   }
 
   function swapItemsBack(title) {
-    const indexOfItemToRemove = secondListItems.findIndex(
+    const indexOfItemToRemove = checkedListItems.findIndex(
       (item) => item === title
     )
 
-    setSecondListItems([
-      ...secondListItems.slice(0, indexOfItemToRemove),
-      ...secondListItems.slice(indexOfItemToRemove + 1),
+    setcheckedListItems([
+      ...checkedListItems.slice(0, indexOfItemToRemove),
+      ...checkedListItems.slice(indexOfItemToRemove + 1),
     ])
 
     setShoppingListItems([title, ...shoppingListItems])
