@@ -7,9 +7,6 @@ let initialId = 0
 
 function App() {
   const [shoppingListItems, setShoppingListItems] = useState([])
-  /*   const activeList = shoppingListItems.filter((item) => item.isActive)
-  const checkedList = shoppingListItems.filter((item) => !item.isActive)
-  console.log(shoppingListItems) */
 
   return (
     <Container>
@@ -40,34 +37,6 @@ function App() {
       ...shoppingListItems,
     ])
   }
-
-  /* function swapItems(title) {
-    const indexOfItemToRemove = shoppingListItems.findIndex(
-      (item) => item === title
-    )
-
-    shoppingListItems.state = !shoppingListItems.state
-    setShoppingListItems([
-      ...shoppingListItems.slice(0, indexOfItemToRemove),
-      ...shoppingListItems.slice(indexOfItemToRemove + 1),
-    ])
-
-    setCheckedListItems([title, ...checkedListItems])
-  }
-
-  function swapItemsBack(title) {
-    const indexOfItemToRemove = checkedListItems.findIndex(
-      (item) => item === title
-    )
-
-    setCheckedListItems([
-      ...checkedListItems.slice(0, indexOfItemToRemove),
-      ...checkedListItems.slice(indexOfItemToRemove + 1),
-    ])
-
-    setShoppingListItems([title, ...shoppingListItems])
-  }
- */
 }
 export default App
 
