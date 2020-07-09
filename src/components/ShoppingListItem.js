@@ -3,7 +3,11 @@ import styled from 'styled-components'
 
 export default ({ listItem, onClick }) => {
   return (
-    <Container onClick={() => onClick(listItem)}>
+    <Container
+      onClick={() => {
+        onClick(listItem)
+      }}
+    >
       <div>{listItem.title}</div>
       <input type='checkbox' />
     </Container>
