@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from './Button'
+import Button from '../Button'
+import ListNameEdit0r from './ListNameEdit0r'
 
 export default ({ onSubmit }) => {
   return (
     <Container>
-      <div>My first shopping list</div>
+      <ListNameEdit0r />
       <form onSubmit={formSubmit}>
         <input type='text' name='input' placeholder='I need..' required />
         <Button text='add' />
@@ -37,8 +38,7 @@ const Container = styled.div`
     margin-right: 5px;
     border-radius: 3px;
     border: none;
-  }
-  div {
-    color: var(--sand);
+    background: var(--sand);
+    outline: none;
   }
 `

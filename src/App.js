@@ -1,42 +1,14 @@
-import React, { useState } from 'react'
-import ShoppingList from './components/ShoppingList'
-import Header from './components/Header'
-import styled from 'styled-components'
+import React from 'react'
 
-let initialId = 0
+import styled from 'styled-components'
+import Index from './components/ShoppingList/index'
 
 function App() {
-  const [shoppingListItems, setShoppingListItems] = useState([])
-
   return (
     <Container>
-      <Header onSubmit={addItems} />
-      <ShoppingList
-        shoppingListItems={shoppingListItems.filter((item) => item.isActive)}
-        onClick={onItemClick}
-      />
-      {/* {checkedList.length < 1 ? null : <p>recently checked</p>} */}
-      <ShoppingList
-        shoppingListItems={shoppingListItems.filter((item) => !item.isActive)}
-        onClick={onItemClick}
-      />
+      <Index />
     </Container>
   )
-
-  function onItemClick(title) {
-    console.log(shoppingListItems, title)
-    title.isActive = !title.isActive
-    setShoppingListItems([...shoppingListItems])
-  }
-
-  function addItems(title) {
-    initialId++
-
-    setShoppingListItems([
-      { title, id: initialId, isActive: true },
-      ...shoppingListItems,
-    ])
-  }
 }
 export default App
 
