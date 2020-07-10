@@ -9,7 +9,7 @@ export default ({ onSubmit }) => {
       <ListNameEdit0r />
       <form onSubmit={formSubmit}>
         <input type='text' name='input' placeholder='I need..' required />
-        <Button text='add' />
+        <Button text='add' fontSize='20px' />
       </form>
     </Container>
   )
@@ -33,12 +33,13 @@ const Container = styled.div`
   box-shadow: 0 0 10px var(--primary);
 
   input {
-    width: 250px;
-    margin-top: 15px;
-    margin-right: 5px;
+    width: 275px;
+
+    margin-right: 10px;
     border-radius: 3px;
     border: none;
     background: var(--sand);
     outline: none;
+    font-size: 20px;
   }
 `

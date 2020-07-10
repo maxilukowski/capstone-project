@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import ShoppingList from './ShoppingList'
+import styled from 'styled-components'
 
 let initialId = 0
 
@@ -13,8 +14,14 @@ export default () => {
     <>
       <Header onSubmit={addItems} />
       <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
-      {secondaryList.length < 1 ? null : <p>recently checked</p>}
-      <ShoppingList shoppingListItems={secondaryList} onClick={onItemClick} />
+      {secondaryList.length < 1 ? null : (
+        <StyledDiv>recently checked</StyledDiv>
+      )}
+      <ShoppingList
+        opacity={0.7}
+        shoppingListItems={secondaryList}
+        onClick={onItemClick}
+      />
     </>
   )
   function onItemClick(listItem) {
@@ -31,3 +38,8 @@ export default () => {
     ])
   }
 }
+
+const StyledDiv = styled.div`
+  text-align: center;
+  color: var(--primary);
+`
