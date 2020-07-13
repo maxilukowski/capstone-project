@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import ShoppingList from './ShoppingList'
 import styled from 'styled-components'
@@ -9,6 +9,16 @@ export default () => {
   const [shoppingListItems, setShoppingListItems] = useState([])
   const activeList = shoppingListItems.filter((item) => item.isActive)
   const secondaryList = shoppingListItems.filter((item) => !item.isActive)
+
+  useEffect(() => {
+    localStorage.setItem('shoppingListItems', JSON.stringify(shoppingListItems))
+  }, [shoppingListItems])
+
+  useEffect(() => {
+    let array = []
+    shoppingListItems.forEach((element) => array.push(element.id))
+    console.log(array)
+  }, [shoppingListItems])
 
   return (
     <>
