@@ -1,5 +1,5 @@
 import React from 'react'
-import GlobalStyles from '../GlobalStyles'
+import GlobalStyles from '../../GlobalStyles'
 import Header from './Header'
 
 export default {

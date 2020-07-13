@@ -1,6 +1,6 @@
 import React from 'react'
 import ShoppingListItem from './ShoppingListItem'
-import GlobalStyles from '../GlobalStyles'
+import GlobalStyles from '../../GlobalStyles'
 
 export default {
   title: 'ShoppingListItem',
