@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default function Button({ text, onClick, fontSize }) {
   return (
-    <ButtonStyled fontSize={fontSize} onClick={onClick}>
+    <ButtonStyled fontSize={fontSize} onClick={onClick} data-testid='button'>
       {text}
     </ButtonStyled>
   )
@@ -14,4 +14,5 @@ const ButtonStyled = styled.button`
   background: var(--secondary);
   border: none;
   font-size: ${(props) => props.fontSize};
+  outline: none;
 `

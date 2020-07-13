@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Button } from '@blueprintjs/core'
+
 import styled from 'styled-components'
+import Button from './../Button'
 
 export default () => {
   const [toggle, setToggle] = useState(true)
@@ -9,57 +10,53 @@ export default () => {
   return (
     <Container>
       {toggle ? (
-        <StyledDiv>
-          <h1 as='div'>{input || 'Shopping List'}</h1>
-          <Button icon='edit' onClick={() => setToggle(!toggle)} />
-        </StyledDiv>
+        <Spacer>
+          <div>{input || 'Shopping List'}</div>
+          <Button fontSize='20px' text='c' onClick={() => setToggle(!toggle)} />
+        </Spacer>
       ) : (
-        <div>
-          <input
+        <Spacer>
+          <StyledInput
             onChange={(event) => setInput(event.target.value)}
             value={input}
-            name='input'
             type='text'
             placeholder='e.g. supermarket'
             autoFocus
             required
+            maxLength='20'
           />
-
-          <Button icon='edit' onClick={() => setToggle(!toggle)} />
-        </div>
+          <Button fontSize='20px' text='c' onClick={() => setToggle(!toggle)} />
+        </Spacer>
       )}
     </Container>
   )
 }
 
 const Container = styled.div`
-  display: flex;
+  margin-bottom: 10px;
 
-  h1 {
-    text-align: center;
-
+  div {
     color: var(--sand);
     font-size: 1.3rem;
-    display: inline;
-  }
-  input {
-    width: 250px;
-
-    margin-right: 5px;
-    border-radius: 3px;
-    border: none;
-    background: var(--sand);
-    outline: none;
   }
 
-  button {
-    border-radius: 3px;
-    background: none;
-    color: #d9822b;
-    border: none;
-    margin: 14px 0;
+  Button {
+    width: 45px;
   }
 `
-const StyledDiv = styled.div`
+
+const StyledInput = styled.input`
+  width: 275px;
+  margin-right: 10px;
+  border-radius: 3px;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 20px;
+  color: var(--sand);
+`
+
+const Spacer = styled.div`
   display: flex;
+  justify-content: space-between;
 `
