@@ -20,7 +20,12 @@ export default () => {
             onChange={(event) => setInput(event.target.value)}
             value={input}
             type='text'
-            placeholder='e.g. supermarket'
+            onKeyDown={(event) => {
+              if (event.keyCode === 13) {
+                setToggle(!toggle)
+              }
+            }}
+            placeholder='e.g. farmer`s market'
             autoFocus
             required
             maxLength='20'
