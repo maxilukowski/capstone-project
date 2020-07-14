@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from '../Button'
 import ListNameEdit0r from './ListNameEdit0r'
 
-export default ({ onSubmit }) => {
+export default ({ onSubmit, onClickDelete }) => {
   return (
     <Container>
       <ListNameEdit0r />
@@ -17,6 +17,7 @@ export default ({ onSubmit }) => {
         />
         <Button text='add' fontSize='20px' />
       </StyledForm>
+      <Button onClick={onClickDelete} text='delete' />
     </Container>
   )
   function formSubmit(event) {
