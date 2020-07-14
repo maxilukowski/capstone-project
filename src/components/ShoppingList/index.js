@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import ShoppingList from './ShoppingList'
 import styled from 'styled-components'
 
-let initialId = 0
+let idSuffix = 0
 
 export default () => {
-  const [shoppingListItems, setShoppingListItems] = useState([])
+  const [shoppingListItems, setShoppingListItems] = useState(
+    JSON.parse(localStorage.getItem('shoppingListItems')) || []
+  )
   const activeList = shoppingListItems.filter((item) => item.isActive)
   const secondaryList = shoppingListItems.filter((item) => !item.isActive)
 
+  useEffect(() => {
+    localStorage.setItem('shoppingListItems', JSON.stringify(shoppingListItems))
+    console.log(shoppingListItems)
+  }, [shoppingListItems])
+
   return (
     <>
-      <Header onSubmit={addItems} />
+      <Header onSubmit={addItems} onClickDelete={clearPage} />
       <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
       {secondaryList.length < 1 ? null : (
         <StyledDiv>recently checked</StyledDiv>
@@ -27,15 +34,20 @@ export default () => {
   function onItemClick(listItem) {
     listItem.isActive = !listItem.isActive
     setShoppingListItems([...shoppingListItems])
+    console.log(listItem.id)
   }
 
   function addItems(title) {
-    initialId++
+    idSuffix++
 
     setShoppingListItems([
-      { title, id: initialId, isActive: true },
+      { title, id: `${Date.now()}_${idSuffix}`, isActive: true },
       ...shoppingListItems,
     ])
+  }
+
+  function clearPage() {
+    setShoppingListItems([])
   }
 }
 
