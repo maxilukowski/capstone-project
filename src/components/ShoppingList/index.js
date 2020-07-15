@@ -9,17 +9,24 @@ export default () => {
   const [shoppingListItems, setShoppingListItems] = useState(
     JSON.parse(localStorage.getItem('shoppingListItems')) || []
   )
+  const [shoppingListName, setShoppingListName] = useState('')
   const activeList = shoppingListItems.filter((item) => item.isActive)
   const secondaryList = shoppingListItems.filter((item) => !item.isActive)
 
   useEffect(() => {
-    localStorage.setItem('shoppingListItems', JSON.stringify(shoppingListItems))
-    console.log(shoppingListItems)
+    localStorage.setItem(shoppingListName, JSON.stringify(shoppingListItems))
   }, [shoppingListItems])
+
+  console.log(shoppingListName)
 
   return (
     <>
-      <Header onSubmit={addItems} onClickDelete={clearPage} />
+      <Header
+        onSubmit={addItems}
+        onClickDelete={clearPage}
+        shoppingListItems={shoppingListItems}
+        onListNameChange={handleListNameChange}
+      />
       <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
       {secondaryList.length < 1 ? null : (
         <StyledDiv>recently checked</StyledDiv>
@@ -49,6 +56,10 @@ export default () => {
 
   function clearPage() {
     setShoppingListItems([])
+  }
+
+  function handleListNameChange(listName) {
+    setShoppingListName(listName)
   }
 }
 

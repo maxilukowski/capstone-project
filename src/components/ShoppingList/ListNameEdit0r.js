@@ -2,16 +2,21 @@ import React, { useState } from 'react'
 
 import styled from 'styled-components'
 import Button from './../Button'
+import DropDownListNames from './DropDownListNames'
 
-export default () => {
+export default ({ shoppingListItems, onListNameChange }) => {
   const [toggle, setToggle] = useState(true)
   const [input, setInput] = useState('')
+  const [listNames, setListNames] = useState(['richi stinkt mittel'])
 
   return (
     <Container>
       {toggle ? (
         <Spacer>
-          <div>{input || 'Shopping List'}</div>
+          <DropDownListNames
+            onListNameChange={onListNameChange}
+            listNames={listNames}
+          />
           <Button fontSize='20px' text='c' onClick={() => setToggle(!toggle)} />
         </Spacer>
       ) : (
@@ -22,6 +27,7 @@ export default () => {
             type='text'
             onKeyDown={(event) => {
               if (event.keyCode === 13) {
+                setListNames([input, ...listNames])
                 setToggle(!toggle)
               }
             }}
@@ -30,7 +36,14 @@ export default () => {
             required
             maxLength='20'
           />
-          <Button fontSize='20px' text='c' onClick={() => setToggle(!toggle)} />
+          <Button
+            fontSize='20px'
+            text='c'
+            onClick={() => {
+              setListNames([input, ...listNames])
+              setToggle(!toggle)
+            }}
+          />
         </Spacer>
       )}
     </Container>

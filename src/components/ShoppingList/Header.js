@@ -3,10 +3,18 @@ import styled from 'styled-components'
 import Button from '../Button'
 import ListNameEdit0r from './ListNameEdit0r'
 
-export default ({ onSubmit, onClickDelete }) => {
+export default ({
+  onSubmit,
+  onClickDelete,
+  shoppingListItems,
+  onListNameChange,
+}) => {
   return (
     <Container>
-      <ListNameEdit0r />
+      <ListNameEdit0r
+        shoppingListItems={shoppingListItems}
+        onListNameChange={onListNameChange}
+      />
       <StyledForm onSubmit={formSubmit}>
         <StyledInput
           maxLength='20'
