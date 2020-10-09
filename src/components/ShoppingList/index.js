@@ -7,17 +7,14 @@ let idSuffix = 0
 
 export default () => {
   const [shoppingListItems, setShoppingListItems] = useState(
-    JSON.parse(localStorage.getItem('shoppingListItems')) || []
-  )
-  const [shoppingListName, setShoppingListName] = useState('')
+    /* JSON.parse(localStorage.getItem('shopping list'))||*/[] )
+  const [shoppingListName, setShoppingListName] = useState("shopping list")
   const activeList = shoppingListItems.filter((item) => item.isActive)
   const secondaryList = shoppingListItems.filter((item) => !item.isActive)
 
   useEffect(() => {
-    localStorage.setItem(shoppingListName, JSON.stringify(shoppingListItems))
+    /* localStorage.setItem('shopping list', JSON.stringify(shoppingListItems)) */
   }, [shoppingListItems])
-
-  console.log(shoppingListName)
 
   return (
     <>
@@ -31,6 +28,7 @@ export default () => {
       {secondaryList.length < 1 ? null : (
         <StyledDiv>recently checked</StyledDiv>
       )}
+      {shoppingListName}
       <ShoppingList
         opacity={0.7}
         shoppingListItems={secondaryList}
@@ -42,7 +40,6 @@ export default () => {
   function onItemClick(listItem) {
     listItem.isActive = !listItem.isActive
     setShoppingListItems([...shoppingListItems])
-    console.log(listItem.id)
   }
 
   function addItems(title) {

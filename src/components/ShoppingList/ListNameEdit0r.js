@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styled from 'styled-components'
-import Button from './../Button'
+import Button from '../Buttons'
 import DropDownListNames from './DropDownListNames'
+
+
 
 export default ({ shoppingListItems, onListNameChange }) => {
   const [toggle, setToggle] = useState(true)
   const [input, setInput] = useState('')
-  const [listNames, setListNames] = useState(['richi stinkt mittel'])
+  const [listNames, setListNames] = useState(
+    JSON.parse(localStorage.getItem('shoppingListNames'))||["shopping list"] )
+
+  useEffect(() => {
+    localStorage.setItem('shoppingListNames', JSON.stringify(listNames))
+
+    // only when "shopping list" not exists in localstorage
+    const newEntry = (input === "" && localStorage.getItem("shopping list") === null)
+      ? 'shopping list'
+      :  input 
+
+    if (newEntry !== "") {
+      localStorage.setItem(newEntry, JSON.stringify([]))
+    }
+    
+  }, [listNames])
 
   return (
     <Container>
@@ -27,7 +44,7 @@ export default ({ shoppingListItems, onListNameChange }) => {
             type='text'
             onKeyDown={(event) => {
               if (event.keyCode === 13) {
-                setListNames([input, ...listNames])
+                setListNames([...listNames,input ])
                 setToggle(!toggle)
               }
             }}
@@ -40,7 +57,7 @@ export default ({ shoppingListItems, onListNameChange }) => {
             fontSize='20px'
             text='c'
             onClick={() => {
-              setListNames([input, ...listNames])
+              setListNames([ ...listNames,input])
               setToggle(!toggle)
             }}
           />

@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../Button'
+import ButtonS from '../Buttons'
 import ListNameEdit0r from './ListNameEdit0r'
+import { Button } from '@blueprintjs/core'
 
 export default ({
   onSubmit,
@@ -23,9 +24,10 @@ export default ({
           placeholder='I need..'
           required
         />
-        <Button text='add' fontSize='20px' />
+        <ButtonS text='add' fontSize='20px' />
       </StyledForm>
-      <Button onClick={onClickDelete} text='delete' />
+      <ButtonS onClick={onClickDelete} text='delete' />
+      <Button text='button content' onClick={onClickDelete} outlined />
     </Container>
   )
   function formSubmit(event) {
