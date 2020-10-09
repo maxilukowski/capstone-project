@@ -20,9 +20,9 @@ export default () => {
     <>
       <Header
         onSubmit={addItems}
-        onClickDelete={clearPage}
+        onClickDelete={setShoppingListItems}
         shoppingListItems={shoppingListItems}
-        onListNameChange={handleListNameChange}
+        onListNameChange={setShoppingListName}
       />
       <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
       {secondaryList.length < 1 ? null : (
@@ -51,13 +51,6 @@ export default () => {
     ])
   }
 
-  function clearPage() {
-    setShoppingListItems([])
-  }
-
-  function handleListNameChange(listName) {
-    setShoppingListName(listName)
-  }
 }
 
 const StyledDiv = styled.div`
