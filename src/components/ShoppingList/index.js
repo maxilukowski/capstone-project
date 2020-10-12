@@ -3,13 +3,12 @@ import Header from './Header'
 import ShoppingList from './ShoppingList'
 import styled from 'styled-components'
 
-
 let idSuffix = 0
 
 //PRETTIER????
 
 const Index = () => {
-  const [shoppingListName, setShoppingListName] = useState("shopping list")
+  const [shoppingListName, setShoppingListName] = useState('shopping list')
   const [shoppingListItems, setShoppingListItems] = useState([])
   const activeList = shoppingListItems.filter((item) => item.isActive)
   const secondaryList = shoppingListItems.filter((item) => !item.isActive)
@@ -17,18 +16,16 @@ const Index = () => {
   /**
    * useEffect superpraktisch um zu terminieren wann eine funktion ausgeführt werden soll
    */
- useEffect(()=>{
-  setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))
- },[shoppingListName])
+  useEffect(() => {
+    setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))
+  }, [shoppingListName])
 
- useEffect(()=>{
-  if( isInitialized.current){
-    localStorage.setItem(shoppingListName, JSON.stringify(shoppingListItems))
-  }
-  isInitialized.current = true
-},[shoppingListItems])
-  
-
+  useEffect(() => {
+    if (isInitialized.current) {
+      localStorage.setItem(shoppingListName, JSON.stringify(shoppingListItems))
+    }
+    isInitialized.current = true
+  }, [shoppingListItems])
 
   return (
     <>
@@ -65,7 +62,6 @@ const Index = () => {
       ...shoppingListItems,
     ])
   }
-
 }
 export default Index
 const StyledDiv = styled.div`
