@@ -3,27 +3,25 @@ import styled from 'styled-components'
 import Button from '../Buttons'
 import DropDownListNames from './DropDownListNames'
 
-
-
-const ListNameEdit0r = ({  onListNameChange }) => {
+const ListNameEdit0r = ({ onListNameChange }) => {
   const [toggle, setToggle] = useState(true)
   const [input, setInput] = useState('')
   const [listNames, setListNames] = useState(
-    JSON.parse(localStorage.getItem('shoppingListNames'))||["shopping list"] )
+    JSON.parse(localStorage.getItem('shoppingListNames')) || ['shopping list']
+  )
 
   useEffect(() => {
     localStorage.setItem('shoppingListNames', JSON.stringify(listNames))
-    // only when "shopping list" not exists in localstorage
-    const newEntry = (input === "" && localStorage.getItem("shopping list") === null)
-    ? 'shopping list'
-    :  input 
+    // only when "shopping list" doesnt exists in localstorage
+    const newEntry =
+      input === '' && localStorage.getItem('shopping list') === null
+        ? 'shopping list'
+        : input
 
-    if (newEntry !== "") {
+    if (newEntry !== '') {
       localStorage.setItem(newEntry, JSON.stringify([]))
     }
   }, [listNames])
-
-  
 
   return (
     <Container>
@@ -33,30 +31,34 @@ const ListNameEdit0r = ({  onListNameChange }) => {
             onListNameChange={onListNameChange}
             listNames={listNames}
           />
-          <Button fontSize='20px' text='c' onClick={() => setToggle(!toggle)} />
+          <Button
+            fontSize="20px"
+            text="new"
+            onClick={() => setToggle(!toggle)}
+          />
         </Spacer>
       ) : (
         <Spacer>
           <StyledInput
             onChange={(event) => setInput(event.target.value)}
             value={input}
-            type='text'
+            type="text"
             onKeyDown={(event) => {
               if (event.keyCode === 13) {
-                setListNames([...listNames,input ])
+                setListNames([...listNames, input])
                 setToggle(!toggle)
               }
             }}
-            placeholder='e.g. farmer`s market'
+            placeholder="e.g. farmer`s market"
             autoFocus
             required
-            maxLength='20'
+            maxLength="20"
           />
           <Button
-            fontSize='20px'
-            text='c'
+            fontSize="20px"
+            text="new"
             onClick={() => {
-              setListNames([ ...listNames,input])
+              setListNames([...listNames, input])
               setToggle(!toggle)
             }}
           />

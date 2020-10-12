@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import ButtonS from '../Buttons'
 import ListNameEdit0r from './ListNameEdit0r'
 
-
 const Header = ({
   onSubmit,
-  onClickDelete,
   shoppingListItems,
   onListNameChange,
   shoppingListName,
-  isInitialized
+  isInitialized,
 }) => {
   return (
     <Container>
@@ -22,15 +20,14 @@ const Header = ({
       />
       <StyledForm onSubmit={formSubmit}>
         <StyledInput
-          maxLength='20'
-          type='text'
-          name='input'
-          placeholder='I need..'
+          maxLength="20"
+          type="text"
+          name="input"
+          placeholder="I need.."
           required
         />
-        <ButtonS text='add' fontSize='20px' />
+        <ButtonS text="add" fontSize="20px" />
       </StyledForm>
-      <ButtonS onClick={()=>onClickDelete([])} text='delete' />
     </Container>
   )
   function formSubmit(event) {
@@ -57,7 +54,6 @@ const Container = styled.div`
 `
 const StyledInput = styled.input`
   width: 275px;
-
   margin-right: 10px;
   border-radius: 3px;
   border: none;

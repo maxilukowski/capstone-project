@@ -1,5 +1,4 @@
 import React from 'react'
-
 import ShoppingListItem from './ShoppingListItem'
 import styled from 'styled-components'
 

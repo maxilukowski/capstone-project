@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Header from './Header'
 import ShoppingList from './ShoppingList'
 import styled from 'styled-components'
+import Button, { DeleteButton } from '../Buttons'
 
 let idSuffix = 0
 
@@ -28,16 +29,19 @@ const Index = () => {
   }, [shoppingListItems])
 
   return (
-    <>
+    <Container>
       <Header
         onSubmit={addItems}
-        onClickDelete={setShoppingListItems}
         shoppingListItems={shoppingListItems}
         onListNameChange={setShoppingListName}
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}
       />
-      <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
+      <ShoppingList
+        shoppingListItems={activeList}
+        onClick={onItemClick}
+        onClickDelete={setShoppingListItems}
+      />
       {secondaryList.length < 1 ? null : (
         <StyledDiv>recently checked</StyledDiv>
       )}
@@ -45,8 +49,10 @@ const Index = () => {
         opacity={0.7}
         shoppingListItems={secondaryList}
         onClick={onItemClick}
+        onClickDelete={setShoppingListItems}
       />
-    </>
+      <DeleteButton onClick={() => setShoppingListItems([])} text="delete" />
+    </Container>
   )
 
   function onItemClick(listItem) {
@@ -67,4 +73,10 @@ export default Index
 const StyledDiv = styled.div`
   text-align: center;
   color: var(--primary);
+`
+
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `
