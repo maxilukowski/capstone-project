@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-
 import styled from 'styled-components'
 import Button from '../Buttons'
 import DropDownListNames from './DropDownListNames'
 
 
 
-export default ({ shoppingListItems, onListNameChange }) => {
+const ListNameEdit0r = ({  onListNameChange }) => {
   const [toggle, setToggle] = useState(true)
   const [input, setInput] = useState('')
   const [listNames, setListNames] = useState(
@@ -14,17 +13,17 @@ export default ({ shoppingListItems, onListNameChange }) => {
 
   useEffect(() => {
     localStorage.setItem('shoppingListNames', JSON.stringify(listNames))
-
     // only when "shopping list" not exists in localstorage
     const newEntry = (input === "" && localStorage.getItem("shopping list") === null)
-      ? 'shopping list'
-      :  input 
+    ? 'shopping list'
+    :  input 
 
     if (newEntry !== "") {
       localStorage.setItem(newEntry, JSON.stringify([]))
     }
-    
   }, [listNames])
+
+  
 
   return (
     <Container>
@@ -66,6 +65,8 @@ export default ({ shoppingListItems, onListNameChange }) => {
     </Container>
   )
 }
+
+export default ListNameEdit0r
 
 const Container = styled.div`
   margin-bottom: 10px;

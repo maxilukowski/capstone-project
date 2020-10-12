@@ -3,7 +3,7 @@ import React from 'react'
 import ShoppingListItem from './ShoppingListItem'
 import styled from 'styled-components'
 
-export default ({ shoppingListItems, onClick, opacity }) => {
+const ShoppingList = ({ shoppingListItems, onClick, opacity }) => {
   return (
     <Container opacity={opacity}>
       {shoppingListItems.map((listItem) => (
@@ -16,6 +16,7 @@ export default ({ shoppingListItems, onClick, opacity }) => {
     </Container>
   )
 }
+export default ShoppingList
 
 const Container = styled.div`
   margin-top: 10px;

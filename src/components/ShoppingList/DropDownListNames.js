@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ listNames, onListNameChange }) => {
+const DropDownListNames = ({ listNames, onListNameChange }) => {
   return (
-    <StyledSelect onChange={(event) => onListNameChange(event.target.value)}>
+    <StyledSelect
+     onChange={(event) => onListNameChange(event.target.value)}>
       {listNames.map((listName, index) => (
         <option key={index}>{listName}</option>
       ))}
+      {/* useRef für initial */}
     </StyledSelect>
   )
 }
+
+export default DropDownListNames
 
 const StyledSelect = styled.select`
   max-width: 100%;

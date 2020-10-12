@@ -4,17 +4,21 @@ import ButtonS from '../Buttons'
 import ListNameEdit0r from './ListNameEdit0r'
 
 
-export default ({
+const Header = ({
   onSubmit,
   onClickDelete,
   shoppingListItems,
   onListNameChange,
+  shoppingListName,
+  isInitialized
 }) => {
   return (
     <Container>
       <ListNameEdit0r
         shoppingListItems={shoppingListItems}
         onListNameChange={onListNameChange}
+        shoppingListName={shoppingListName}
+        isInitialized={isInitialized}
       />
       <StyledForm onSubmit={formSubmit}>
         <StyledInput
@@ -36,6 +40,8 @@ export default ({
     event.target.reset()
   }
 }
+
+export default Header
 
 const Container = styled.div`
   display: flex;
