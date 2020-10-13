@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import Button from '../Buttons'
 import DropDownListNames from './DropDownListNames'
 
-const ListNameEdit0r = ({ onListNameChange }) => {
+const ListNameEdit0r = ({ onListNameChange, shoppingListName }) => {
   const [toggle, setToggle] = useState(true)
   const [input, setInput] = useState('')
   const [listNames, setListNames] = useState(
     JSON.parse(localStorage.getItem('shoppingListNames')) || ['shopping list']
   )
+  const [listToRemove, setListToRemove] = useState('')
 
   useEffect(() => {
     localStorage.setItem('shoppingListNames', JSON.stringify(listNames))
@@ -21,6 +22,8 @@ const ListNameEdit0r = ({ onListNameChange }) => {
     if (newEntry !== '') {
       localStorage.setItem(newEntry, JSON.stringify([]))
     }
+
+    if (listToRemove) localStorage.removeItem(listToRemove)
   }, [listNames])
 
   return (
@@ -30,6 +33,12 @@ const ListNameEdit0r = ({ onListNameChange }) => {
           <DropDownListNames
             onListNameChange={onListNameChange}
             listNames={listNames}
+          />
+          <Button
+            fontSize="20px"
+            text="del"
+            mr="15px"
+            onClick={removeListName}
           />
           <Button
             fontSize="20px"
@@ -66,6 +75,17 @@ const ListNameEdit0r = ({ onListNameChange }) => {
       )}
     </Container>
   )
+  function removeListName() {
+    const newArray = [...listNames]
+    newArray.map((item, i) => {
+      if (item === shoppingListName) {
+        setListToRemove(item)
+        newArray.splice(i, 1)
+      }
+
+      setListNames(newArray)
+    })
+  }
 }
 
 export default ListNameEdit0r

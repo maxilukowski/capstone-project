@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import Header from './Header'
 import ShoppingList from './ShoppingList'
 import styled from 'styled-components'
-import Button, { DeleteButton } from '../Buttons'
+import { DeleteButton } from '../Buttons'
 
 let idSuffix = 0
-
-//PRETTIER????
 
 const Index = () => {
   const [shoppingListName, setShoppingListName] = useState('shopping list')
@@ -14,9 +12,7 @@ const Index = () => {
   const activeList = shoppingListItems.filter((item) => item.isActive)
   const secondaryList = shoppingListItems.filter((item) => !item.isActive)
   const isInitialized = useRef(false) //useREF anschaun
-  /**
-   * useEffect superpraktisch um zu terminieren wann eine funktion ausgeführt werden soll
-   */
+
   useEffect(() => {
     setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))
   }, [shoppingListName])

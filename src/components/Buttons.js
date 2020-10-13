@@ -1,9 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Button({ text, onClick, fontSize }) {
+export default function Button({ text, onClick, fontSize, mr }) {
   return (
-    <ButtonStyled fontSize={fontSize} onClick={onClick} data-testid="button">
+    <ButtonStyled
+      fontSize={fontSize}
+      onClick={onClick}
+      mr={mr}
+      data-testid="button"
+    >
       {text}
     </ButtonStyled>
   )
@@ -23,6 +28,7 @@ const ButtonStyled = styled.button`
   border: none;
   font-size: ${(props) => props.fontSize};
   outline: none;
+  margin-right: ${(props) => props.mr};
 `
 
 const StyledDeleteButton = styled.button`
