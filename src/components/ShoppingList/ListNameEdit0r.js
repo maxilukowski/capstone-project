@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from '../Buttons'
 import DropDownListNames from './DropDownListNames'
 
-const ListNameEdit0r = ({ onListNameChange, shoppingListName }) => {
+const ListNameEdit0r = ({ setShoppingListName, shoppingListName }) => {
   const [toggle, setToggle] = useState(true)
   const [input, setInput] = useState('')
   const [listNames, setListNames] = useState(
@@ -25,14 +25,15 @@ const ListNameEdit0r = ({ onListNameChange, shoppingListName }) => {
 
     if (listToRemove) localStorage.removeItem(listToRemove)
   }, [listNames])
-
+  console.log(shoppingListName)
   return (
     <Container>
       {toggle ? (
         <Spacer>
           <DropDownListNames
-            onListNameChange={onListNameChange}
+            setShoppingListName={setShoppingListName}
             listNames={listNames}
+            shoppingListName={shoppingListName}
           />
           <Button
             fontSize="20px"
@@ -54,6 +55,7 @@ const ListNameEdit0r = ({ onListNameChange, shoppingListName }) => {
             type="text"
             onKeyDown={(event) => {
               if (event.keyCode === 13) {
+                setShoppingListName(input)
                 setListNames([...listNames, input])
                 setToggle(!toggle)
               }
@@ -65,8 +67,9 @@ const ListNameEdit0r = ({ onListNameChange, shoppingListName }) => {
           />
           <Button
             fontSize="20px"
-            text="new"
+            text="add"
             onClick={() => {
+              setShoppingListName(input)
               setListNames([...listNames, input])
               setToggle(!toggle)
             }}
@@ -76,15 +79,19 @@ const ListNameEdit0r = ({ onListNameChange, shoppingListName }) => {
     </Container>
   )
   function removeListName() {
-    const newArray = [...listNames]
-    newArray.map((item, i) => {
-      if (item === shoppingListName) {
-        setListToRemove(item)
-        newArray.splice(i, 1)
+    /* const newListNames = [...listNames]
+    newListNames.map((listName, i) => {
+      if (listName === shoppingListName) {
+        setListToRemove(listName)
+        newListNames.splice(i, 1)
       }
+      setListNames(newListNames) })*/
 
-      setListNames(newArray)
+    const newListNames = listNames.filter((listName) => {
+      if (listName === shoppingListName) setListToRemove(listName)
+      return listName !== shoppingListName
     })
+    setListNames(newListNames)
   }
 }
 

@@ -29,7 +29,7 @@ const Index = () => {
       <Header
         onSubmit={addItems}
         shoppingListItems={shoppingListItems}
-        onListNameChange={setShoppingListName}
+        setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}
       />

@@ -6,18 +6,21 @@ import ListNameEdit0r from './ListNameEdit0r'
 const Header = ({
   onSubmit,
   shoppingListItems,
-  onListNameChange,
+  setShoppingListName,
   shoppingListName,
   isInitialized,
 }) => {
+  //TODO
   return (
     <Container>
       <ListNameEdit0r
         shoppingListItems={shoppingListItems}
-        onListNameChange={onListNameChange}
+        setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}
       />
+      {/* eigene component */}
+      {/* TODO */}
       <StyledForm onSubmit={formSubmit}>
         <StyledInput
           maxLength="20"
@@ -30,6 +33,7 @@ const Header = ({
       </StyledForm>
     </Container>
   )
+  //stub
   function formSubmit(event) {
     event.preventDefault()
     const title = event.target.input.value

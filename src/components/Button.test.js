@@ -1,13 +1,21 @@
 import React from 'react'
-import Button from './Button'
-import { render, screen } from '@testing-library/react'
+import Button from './Buttons'
+import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 describe('Button.test.js', () => {
-  it('renders a child element', () => {
-    const text1 = 'foo'
-    render(<Button text={text1} />)
+  let testFunction
+  const text1 = 'foo'
+  beforeEach(() => {
+    testFunction = jest.fn()
+    render(<Button onClick={testFunction} text={text1} />)
     screen.debug()
+  })
+  it('renders a child element', () => {
     expect(screen.getByText(text1)).toBeInTheDocument()
+  })
+  it('reacts on a click event', () => {
+    fireEvent.click(screen.getByText(text1))
+    expect(testFunction).toHaveBeenCalledTimes(1)
   })
 })

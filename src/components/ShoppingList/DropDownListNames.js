@@ -1,9 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const DropDownListNames = ({ listNames, onListNameChange }) => {
+const DropDownListNames = ({
+  listNames,
+  setShoppingListName,
+  shoppingListName,
+}) => {
   return (
-    <StyledSelect onChange={(event) => onListNameChange(event.target.value)}>
+    <StyledSelect
+      value={shoppingListName}
+      onChange={(event) => setShoppingListName(event.target.value)}
+    >
       {listNames.map((listName, index) => (
         <option key={index}>{listName}</option>
       ))}

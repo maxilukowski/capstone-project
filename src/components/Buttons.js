@@ -3,12 +3,7 @@ import styled from 'styled-components'
 
 export default function Button({ text, onClick, fontSize, mr }) {
   return (
-    <ButtonStyled
-      fontSize={fontSize}
-      onClick={onClick}
-      mr={mr}
-      data-testid="button"
-    >
+    <ButtonStyled fontSize={fontSize} onClick={onClick} mr={mr}>
       {text}
     </ButtonStyled>
   )
