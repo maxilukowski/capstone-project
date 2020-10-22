@@ -25,8 +25,8 @@ describe('ShoppingList.js', () => {
         onClick={handleClick}
       />
     )
-    screen.debug()
     renderedShoppingListItems = screen.getAllByText('a')
+    screen.debug()
   })
   it('displays the expected amount of children', () => {
     expect(renderedShoppingListItems.length).toBe(amount)

@@ -9,7 +9,7 @@ export default ({ listItem, onClick }) => {
       }}
     >
       <div>{listItem.title}</div>
-      <input type='checkbox' />
+      <input type="checkbox" data-testid="shopping-list-item-checker" />
     </Container>
   )
 }
