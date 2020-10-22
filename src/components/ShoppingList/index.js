@@ -36,6 +36,7 @@ const Index = () => {
       <ShoppingList
         shoppingListItems={activeList}
         onClick={onItemClick}
+        //onclickdelete??
         onClickDelete={setShoppingListItems}
       />
       {secondaryList.length < 1 ? null : (
