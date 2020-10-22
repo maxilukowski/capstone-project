@@ -11,7 +11,6 @@ describe('ShoppingListItem.js', () => {
     handleClick = jest.fn()
     render(<ShoppingListItem onClick={handleClick} listItem={listItem} />)
     renderedListItem = screen.getByText('banana')
-    screen.debug()
   })
   it('calls onClick prop when clicked', () => {
     fireEvent.click(renderedListItem)

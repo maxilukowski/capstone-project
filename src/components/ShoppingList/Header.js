@@ -20,7 +20,8 @@ const Header = ({
         isInitialized={isInitialized}
       />
       {/* eigene component */}
-      {/* TODO */}
+      {/* TODO 
+      snapshot*/}
       <StyledForm onSubmit={formSubmit}>
         <StyledInput
           maxLength="20"

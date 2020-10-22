@@ -10,9 +10,12 @@ const DropDownListNames = ({
     <StyledSelect
       value={shoppingListName}
       onChange={(event) => setShoppingListName(event.target.value)}
+      data-testid="dropdown-select-listnames"
     >
       {listNames.map((listName, index) => (
-        <option key={index}>{listName}</option>
+        <option key={index} data-testid="dropdown-option-listnames">
+          {listName}
+        </option>
       ))}
       {/* useRef für initial */}
     </StyledSelect>

@@ -15,29 +15,13 @@ describe('ShoppingList.js', () => {
     },
   ]
   const amount = shoppingListItems.length
-  let handleClick
   let renderedShoppingListItems
   beforeEach(() => {
-    handleClick = jest.fn()
-    render(
-      <ShoppingList
-        shoppingListItems={shoppingListItems}
-        onClick={handleClick}
-      />
-    )
+    render(<ShoppingList shoppingListItems={shoppingListItems} />)
     renderedShoppingListItems = screen.getAllByText('a')
     screen.debug()
   })
   it('displays the expected amount of children', () => {
     expect(renderedShoppingListItems.length).toBe(amount)
-  })
-  it('reacts on a click event', () => {
-    /* shoppingListItems.map((item) => {
-      fireEvent.click(screen.getByText(item.title))
-    }) */
-    renderedShoppingListItems.map((item) => {
-      fireEvent.click(item)
-    })
-    expect(handleClick).toHaveBeenCalledTimes(amount)
   })
 })
