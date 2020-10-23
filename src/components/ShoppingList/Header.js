@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import ButtonS from '../Buttons'
 import ListNameEdit0r from './ListNameEdit0r'
+import ShoppingListItemForm from './ShoppingListItemForm'
 
 const Header = ({
   onSubmit,
@@ -19,28 +19,12 @@ const Header = ({
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}
       />
-      {/* eigene component */}
       {/* TODO 
       snapshot*/}
-      <StyledForm onSubmit={formSubmit}>
-        <StyledInput
-          maxLength="20"
-          type="text"
-          name="input"
-          placeholder="I need.."
-          required
-        />
-        <ButtonS text="add" fontSize="20px" />
-      </StyledForm>
+      <ShoppingListItemForm onSubmit={onSubmit} />
     </Container>
   )
   //stub
-  function formSubmit(event) {
-    event.preventDefault()
-    const title = event.target.input.value
-    onSubmit(title)
-    event.target.reset()
-  }
 }
 
 export default Header
@@ -56,18 +40,4 @@ const Container = styled.div`
   top: 0;
   width: 100vw;
   box-shadow: 0 0 10px var(--primary);
-`
-const StyledInput = styled.input`
-  width: 275px;
-  margin-right: 10px;
-  border-radius: 3px;
-  border: none;
-  background: var(--sand);
-  outline: none;
-  font-size: 20px;
-`
-
-const StyledForm = styled.form`
-  display: flex;
-  justify-content: space-between;
 `
