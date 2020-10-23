@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import ButtonS from '../Buttons'
 
 const ShoppingListItemForm = ({ onSubmit }) => {
+  const input = useRef(null)
   return (
-    <StyledForm onSubmit={formSubmit}>
+    <StyledForm
+      data-testid="test"
+      onSubmit={(e) => formSubmit(e, onSubmit, input)}
+    >
       <StyledInput
         maxLength="20"
         type="text"
+        ref={input}
         name="input"
         placeholder="I need.."
         required
@@ -15,16 +20,16 @@ const ShoppingListItemForm = ({ onSubmit }) => {
       <ButtonS text="add" fontSize="20px" />
     </StyledForm>
   )
-
-  function formSubmit(event) {
-    event.preventDefault()
-    const title = event.target.input.value
-    onSubmit(title)
-    event.target.reset()
-  }
 }
 
 export default ShoppingListItemForm
+
+export function formSubmit(event, onSubmit, input) {
+  event.preventDefault()
+  const title = input.current.value
+  onSubmit(title)
+  event.target.reset()
+}
 
 const StyledInput = styled.input`
   width: 275px;
