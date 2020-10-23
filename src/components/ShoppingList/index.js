@@ -33,12 +33,7 @@ const Index = () => {
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}
       />
-      <ShoppingList
-        shoppingListItems={activeList}
-        onClick={onItemClick}
-        //onclickdelete??
-        onClickDelete={setShoppingListItems}
-      />
+      <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
       {secondaryList.length < 1 ? null : (
         <StyledDiv>recently checked</StyledDiv>
       )}
@@ -46,7 +41,6 @@ const Index = () => {
         opacity={0.7}
         shoppingListItems={secondaryList}
         onClick={onItemClick}
-        onClickDelete={setShoppingListItems}
       />
       <DeleteButton onClick={() => setShoppingListItems([])} text="delete" />
     </Container>

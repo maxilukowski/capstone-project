@@ -25,7 +25,7 @@ const ListNameEdit0r = ({ setShoppingListName, shoppingListName }) => {
 
     if (listToRemove) localStorage.removeItem(listToRemove)
   }, [listNames])
-  console.log(shoppingListName)
+
   return (
     <Container>
       {toggle ? (
