@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default ({ listItem, onClick }) => {
+const ShoppingListItem = ({ listItem, onClick }) => {
   return (
     <Container
       onClick={() => {
@@ -13,6 +13,8 @@ export default ({ listItem, onClick }) => {
     </Container>
   )
 }
+
+export default ShoppingListItem
 
 const Container = styled.div`
   display: flex;

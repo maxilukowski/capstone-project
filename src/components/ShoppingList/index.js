@@ -6,15 +6,18 @@ import { DeleteButton } from '../Buttons'
 
 let idSuffix = 0
 
+// shoppingListName darf es nur 1x geben
+
 const Index = () => {
   const [shoppingListName, setShoppingListName] = useState('shopping list')
   const [shoppingListItems, setShoppingListItems] = useState([])
-  const activeList = shoppingListItems.filter((item) => item.isActive)
-  const secondaryList = shoppingListItems.filter((item) => !item.isActive)
+  const uncheckedList = shoppingListItems.filter((item) => item.isActive)
+  const checkedList = shoppingListItems.filter((item) => !item.isActive)
   const isInitialized = useRef(false) //useREF anschaun
 
   useEffect(() => {
-    setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))
+    if (shoppingListName.length > 0)
+      setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))
   }, [shoppingListName])
 
   useEffect(() => {
@@ -28,18 +31,15 @@ const Index = () => {
     <Container>
       <Header
         onSubmit={addItems}
-        shoppingListItems={shoppingListItems}
         setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}
       />
-      <ShoppingList shoppingListItems={activeList} onClick={onItemClick} />
-      {secondaryList.length < 1 ? null : (
-        <StyledDiv>recently checked</StyledDiv>
-      )}
+      <ShoppingList shoppingListItems={uncheckedList} onClick={onItemClick} />
+      {checkedList.length < 1 ? null : <StyledDiv>recently checked</StyledDiv>}
       <ShoppingList
         opacity={0.7}
-        shoppingListItems={secondaryList}
+        shoppingListItems={checkedList}
         onClick={onItemClick}
       />
       <DeleteButton onClick={() => setShoppingListItems([])} text="delete" />

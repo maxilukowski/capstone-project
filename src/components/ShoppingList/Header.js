@@ -5,7 +5,6 @@ import ShoppingListItemForm from './ShoppingListItemForm'
 
 const Header = ({
   onSubmit,
-  shoppingListItems,
   setShoppingListName,
   shoppingListName,
   isInitialized,
@@ -14,7 +13,6 @@ const Header = ({
   return (
     <Container>
       <ListNameEdit0r
-        shoppingListItems={shoppingListItems}
         setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
         isInitialized={isInitialized}

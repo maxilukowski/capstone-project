@@ -48,45 +48,32 @@ const ListNameEdit0r = ({ setShoppingListName, shoppingListName }) => {
           />
         </Spacer>
       ) : (
-        <Spacer>
-          <StyledInput
-            onChange={(event) => setInput(event.target.value)}
-            value={input}
-            type="text"
-            onKeyDown={(event) => {
-              if (event.keyCode === 13) {
-                setShoppingListName(input)
-                setListNames([...listNames, input])
-                setToggle(!toggle)
-              }
-            }}
-            placeholder="e.g. farmer`s market"
-            autoFocus
-            required
-            maxLength="20"
-          />
-          <Button
-            fontSize="20px"
-            text="add"
-            onClick={() => {
-              setShoppingListName(input)
-              setListNames([...listNames, input])
-              setToggle(!toggle)
-            }}
-          />
-        </Spacer>
+        <form onSubmit={submitHandler}>
+          <Spacer>
+            <StyledInput
+              required
+              minLength="3"
+              onChange={(event) => setInput(event.target.value)}
+              value={input}
+              type="text"
+              placeholder="e.g. farmer`s market"
+              autoFocus
+              maxLength="20"
+            />
+            <Button fontSize="20px" disabled="disabled" text="add" />
+          </Spacer>
+        </form>
       )}
     </Container>
   )
-  function removeListName() {
-    /* const newListNames = [...listNames]
-    newListNames.map((listName, i) => {
-      if (listName === shoppingListName) {
-        setListToRemove(listName)
-        newListNames.splice(i, 1)
-      }
-      setListNames(newListNames) })*/
+  function submitHandler(event) {
+    event.preventDefault()
+    setShoppingListName(input)
+    setListNames([...listNames, input])
+    setToggle(!toggle)
+  }
 
+  function removeListName() {
     const newListNames = listNames.filter((listName) => {
       if (listName === shoppingListName) setListToRemove(listName)
       return listName !== shoppingListName
