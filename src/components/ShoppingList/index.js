@@ -6,7 +6,7 @@ import { DeleteButton } from '../Buttons'
 
 let idSuffix = 0
 
-// shoppingListName darf es nur 1x geben
+// shoppingListName darf es nur 1x gebena
 
 const Index = () => {
   const [shoppingListName, setShoppingListName] = useState('shopping list')
