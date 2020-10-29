@@ -33,7 +33,6 @@ const Index = () => {
         onSubmit={addItems}
         setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
-        isInitialized={isInitialized}
       />
       <ShoppingList shoppingListItems={uncheckedList} onClick={onItemClick} />
       {checkedList.length < 1 ? null : <StyledDiv>recently checked</StyledDiv>}

@@ -3,26 +3,16 @@ import styled from 'styled-components'
 import ListNameEdit0r from './ListNameEdit0r'
 import ShoppingListItemForm from './ShoppingListItemForm'
 
-const Header = ({
-  onSubmit,
-  setShoppingListName,
-  shoppingListName,
-  isInitialized,
-}) => {
-  //TODO
+const Header = ({ onSubmit, setShoppingListName, shoppingListName }) => {
   return (
     <Container>
       <ListNameEdit0r
         setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
-        isInitialized={isInitialized}
       />
-      {/* TODO 
-      snapshot*/}
       <ShoppingListItemForm onSubmit={onSubmit} />
     </Container>
   )
-  //stub
 }
 
 export default Header
