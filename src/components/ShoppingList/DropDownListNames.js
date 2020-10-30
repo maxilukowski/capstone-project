@@ -24,27 +24,42 @@ const DropDownListNames = ({
           </option>
         ))}
       </StyledSelect>
-      <Button fontSize="20px" text="del" mr="15px" onClick={removeListName} />
+      <Button
+        fontSize="20px"
+        text="del"
+        mr="15px"
+        // wieso geht hier {removeListName} nicht?
+        onClick={() =>
+          removeListName(
+            listNames,
+            setListToRemove,
+            setListNames,
+            shoppingListName
+          )
+        }
+      />
       <Button fontSize="20px" text="new" onClick={() => setToggle(!toggle)} />
     </Spacer>
   )
-  function removeListName() {
-    const newListNames = listNames.filter((listName) => {
-      if (listName === shoppingListName) setListToRemove(listName)
-      return listName !== shoppingListName
-    })
-    setListNames(newListNames)
-  }
 }
 
-// alle elemente vorhanden/ && visible
-// test .map
-// onchangehandler testen jest.fn() calledTimes & mock eventObject
-// removeListName exportieren und testen (shoppingListItemForm.js)
 //jest.fn( )doc anschaun
 // button testen / ob settoggle ausgeführt wird jest.fn() hasbeencalledtimes
 
 export default DropDownListNames
+
+export function removeListName(
+  listNames,
+  setListToRemove,
+  setListNames,
+  shoppingListName
+) {
+  const newListNames = listNames.filter((listName) => {
+    if (listName === shoppingListName) setListToRemove(listName)
+    return listName !== shoppingListName
+  })
+  setListNames(newListNames)
+}
 
 const StyledSelect = styled.select`
   width: 275px;
