@@ -12,22 +12,21 @@ const ListNameInput = ({
   toggle,
 }) => {
   return (
-    <form onSubmit={submitHandler}>
-      <Spacer>
-        <StyledInput
-          required
-          minLength="3"
-          onChange={(event) => setInput(event.target.value)}
-          value={input}
-          type="text"
-          placeholder="e.g. farmer`s market"
-          autoFocus
-          maxLength="20"
-        />
-        <Button fontSize="20px" disabled="disabled" text="add" />
-      </Spacer>
-    </form>
+    <StyledForm onSubmit={submitHandler}>
+      <StyledInput
+        required
+        minLength="3"
+        onChange={(event) => setInput(event.target.value)}
+        value={input}
+        type="text"
+        placeholder="e.g. farmer`s market"
+        autoFocus
+        maxLength="20"
+      />
+      <Button fontSize="20px" text="add" />
+    </StyledForm>
   )
+
   function submitHandler(event) {
     event.preventDefault()
     setShoppingListName(input)
@@ -38,7 +37,7 @@ const ListNameInput = ({
 
 export default ListNameInput
 
-const Spacer = styled.div`
+const StyledForm = styled.form`
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;

@@ -9,7 +9,6 @@ describe('Button.test.js', () => {
   beforeEach(() => {
     testFunction = jest.fn()
     render(<Button onClick={testFunction} text={text1} />)
-    screen.debug()
   })
   it('renders a child element', () => {
     expect(screen.getByText(text1)).toBeInTheDocument()

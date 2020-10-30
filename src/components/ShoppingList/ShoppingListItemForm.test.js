@@ -29,13 +29,9 @@ describe('ShoppingListItemForm.js', () => {
       expect(input.value).toBe(testString)
     })
     test('should submit form on buttonClick', () => {
-      screen.debug()
       fireEvent.click(button)
       fireEvent.submit(form)
       expect(handleSubmit).toHaveBeenCalledTimes(2)
-    })
-    test('matches snapshot', () => {
-      expect(pretty(component.container.innerHTML)).toMatchSnapshot()
     })
   })
 

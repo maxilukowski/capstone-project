@@ -17,7 +17,6 @@ const ListNameEdit0r = ({ setShoppingListName, shoppingListName }) => {
       input === '' && localStorage.getItem('shopping list') === null
         ? 'shopping list'
         : input
-
     if (newEntry !== '') {
       localStorage.setItem(newEntry, JSON.stringify([]))
     }

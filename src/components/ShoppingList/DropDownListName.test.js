@@ -15,7 +15,6 @@ describe('DropDownListName', () => {
         setShoppingListName={handleChange}
       />
     )
-    screen.debug()
   })
   it('changes the value via onChange', () => {
     const select = screen.getByTestId('dropdown-select-listnames')

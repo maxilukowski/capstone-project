@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ShoppingListItemForm.js testing formfields matches snapshot 1`] = `"<form data-testid=\\"test\\" class=\\"sc-AxhCb jdesIU\\"><input maxlength=\\"20\\" type=\\"text\\" name=\\"input\\" placeholder=\\"I need..\\" required=\\"\\" class=\\"sc-AxiKw gELxW\\"><button font-size=\\"20px\\" class=\\"sc-AxjAm ffZWFz\\">add</button></form>"`;

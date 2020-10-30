@@ -37,6 +37,13 @@ const DropDownListNames = ({
   }
 }
 
+// alle elemente vorhanden/ && visible
+// test .map
+// onchangehandler testen jest.fn() calledTimes & mock eventObject
+// removeListName exportieren und testen (shoppingListItemForm.js)
+//jest.fn( )doc anschaun
+// button testen / ob settoggle ausgeführt wird jest.fn() hasbeencalledtimes
+
 export default DropDownListNames
 
 const StyledSelect = styled.select`
