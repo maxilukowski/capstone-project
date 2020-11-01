@@ -12,7 +12,19 @@ const ListNameInput = ({
   toggle,
 }) => {
   return (
-    <StyledForm onSubmit={submitHandler}>
+    <StyledForm
+      onSubmit={(event) =>
+        submitHandler(
+          event,
+          setShoppingListName,
+          setListNames,
+          listNames,
+          setToggle,
+          toggle,
+          input
+        )
+      }
+    >
       <StyledInput
         required
         minLength="3"
@@ -26,16 +38,24 @@ const ListNameInput = ({
       <Button fontSize="20px" text="add" />
     </StyledForm>
   )
-
-  function submitHandler(event) {
-    event.preventDefault()
-    setShoppingListName(input)
-    setListNames([...listNames, input])
-    setToggle(!toggle)
-  }
 }
 
 export default ListNameInput
+
+export function submitHandler(
+  event,
+  setShoppingListName,
+  setListNames,
+  listNames,
+  setToggle,
+  toggle,
+  input
+) {
+  event.preventDefault()
+  setShoppingListName(input)
+  setListNames([...listNames, input])
+  setToggle(!toggle)
+}
 
 const StyledForm = styled.form`
   margin-bottom: 10px;

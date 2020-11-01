@@ -43,9 +43,6 @@ const DropDownListNames = ({
   )
 }
 
-//jest.fn( )doc anschaun
-// button testen / ob settoggle ausgeführt wird jest.fn() hasbeencalledtimes
-
 export default DropDownListNames
 
 export function removeListName(
