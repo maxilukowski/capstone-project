@@ -65,9 +65,5 @@ describe('ListNameInput.js', () => {
     it('listNames is available', () => {
       expect(listNames).not.toBeNull()
     })
-    /*     it('toggle is working as intended', () => {
-      screen.debug()
-      expect(toggle).toBe(false)
-    }) */
   })
 })

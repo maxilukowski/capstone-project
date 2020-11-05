@@ -14,7 +14,6 @@ const Index = () => {
   const uncheckedList = shoppingListItems.filter((item) => item.isActive)
   const checkedList = shoppingListItems.filter((item) => !item.isActive)
   const isInitialized = useRef(false) //useREF anschaun
-
   useEffect(() => {
     if (shoppingListName.length > 0)
       setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))

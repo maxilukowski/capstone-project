@@ -20,7 +20,6 @@ const ListNameEdit0r = ({ setShoppingListName, shoppingListName }) => {
     if (newEntry !== '') {
       localStorage.setItem(newEntry, JSON.stringify([]))
     }
-
     if (listToRemove) localStorage.removeItem(listToRemove)
   }, [listNames])
 

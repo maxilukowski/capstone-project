@@ -3,6 +3,7 @@ import DropDownListName, { removeListName } from './DropDownListNames'
 import { screen, render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
+// mutation?!
 const listNames = ['a', 'b']
 const [listNameA, ListNameB] = listNames
 describe('DropDownListName', () => {
@@ -40,10 +41,11 @@ describe('DropDownListName', () => {
 })
 
 describe('removeListName function', () => {
-  let setListToRemove = jest.fn()
-  let setListNames = jest.fn()
-  let shoppingListName = listNameA
+  const setListToRemove = jest.fn()
+  const setListNames = jest.fn()
+  let shoppingListName
   beforeEach(() => {
+    shoppingListName = listNameA
     removeListName(listNames, setListToRemove, setListNames, shoppingListName)
   })
   it('triggers setListToRemove & checks for condition', () => {
