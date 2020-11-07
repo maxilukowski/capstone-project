@@ -2,7 +2,6 @@ import React from 'react'
 import ShoppingListItemForm, { formSubmit } from './ShoppingListItemForm'
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import pretty from 'pretty'
 
 describe('ShoppingListItemForm.js', () => {
   describe('testing formfields', () => {
@@ -11,10 +10,9 @@ describe('ShoppingListItemForm.js', () => {
     let button
     let handleSubmit
     let form
-    let component
     beforeEach(() => {
       handleSubmit = jest.fn()
-      component = render(<ShoppingListItemForm onSubmit={handleSubmit} />)
+      render(<ShoppingListItemForm onSubmit={handleSubmit} />)
       input = screen.getByPlaceholderText('I need..')
       button = screen.getByText('add')
       form = screen.getByTestId('test')
@@ -29,13 +27,9 @@ describe('ShoppingListItemForm.js', () => {
       expect(input.value).toBe(testString)
     })
     test('should submit form on buttonClick', () => {
-      screen.debug()
       fireEvent.click(button)
       fireEvent.submit(form)
       expect(handleSubmit).toHaveBeenCalledTimes(2)
-    })
-    test('matches snapshot', () => {
-      expect(pretty(component.container.innerHTML)).toMatchSnapshot()
     })
   })
 

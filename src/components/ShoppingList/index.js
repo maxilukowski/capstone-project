@@ -14,7 +14,6 @@ const Index = () => {
   const uncheckedList = shoppingListItems.filter((item) => item.isActive)
   const checkedList = shoppingListItems.filter((item) => !item.isActive)
   const isInitialized = useRef(false) //useREF anschaun
-
   useEffect(() => {
     if (shoppingListName.length > 0)
       setShoppingListItems(JSON.parse(localStorage.getItem(shoppingListName)))
@@ -33,7 +32,6 @@ const Index = () => {
         onSubmit={addItems}
         setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
-        isInitialized={isInitialized}
       />
       <ShoppingList shoppingListItems={uncheckedList} onClick={onItemClick} />
       {checkedList.length < 1 ? null : <StyledDiv>recently checked</StyledDiv>}
