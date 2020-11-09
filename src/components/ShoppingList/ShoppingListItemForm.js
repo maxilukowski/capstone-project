@@ -15,9 +15,14 @@ const ShoppingListItemForm = ({ onSubmit }) => {
         ref={input}
         name="input"
         placeholder="I need.."
+        data-testid="shopping-listitem-input"
         required
       />
-      <ButtonS text="add" fontSize="20px" />
+      <ButtonS
+        dataTestid="shopping-listitem-form-button"
+        text="add"
+        fontSize="20px"
+      />
     </StyledForm>
   )
 }

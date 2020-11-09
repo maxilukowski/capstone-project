@@ -8,7 +8,7 @@ const ShoppingListItem = ({ listItem, onClick }) => {
         onClick(listItem)
       }}
     >
-      <div>{listItem.title}</div>
+      <div data-testid="shoppingListItem">{listItem.title}</div>
       <input type="checkbox" data-testid="shopping-list-item-checker" />
     </Container>
   )
