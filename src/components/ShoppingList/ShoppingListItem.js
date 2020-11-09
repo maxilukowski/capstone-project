@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ShoppingListItem = ({ listItem, onClick }) => {
+const ShoppingListItem = ({ listItem, onClick, testId }) => {
   return (
     <Container
+      data-testId={testId}
       onClick={() => {
         onClick(listItem)
       }}
