@@ -14,9 +14,9 @@ export default function Button({ text, onClick, fontSize, mr, dataTestid }) {
   )
 }
 
-export const DeleteButton = ({ text, onClick }) => {
+export const DeleteButton = ({ text, onClick, dataTestid }) => {
   return (
-    <StyledDeleteButton onClick={onClick} data-testid="Button">
+    <StyledDeleteButton onClick={onClick} data-testid={dataTestid}>
       {text}
     </StyledDeleteButton>
   )

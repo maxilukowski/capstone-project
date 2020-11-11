@@ -3,7 +3,6 @@ describe('Header Component', () => {
     cy.visit('/')
   })
   it('adds and deletes lists', () => {
-    //kann minlenght nich ttesten
     cy.contains('new').click()
     cy.get('[placeholder="e.g. farmer`s market"]').type('new list')
     cy.contains('add').click()

@@ -45,7 +45,11 @@ const Index = () => {
         shoppingListItems={checkedList}
         onClick={onItemClick}
       />
-      <DeleteButton onClick={() => setShoppingListItems([])} text="delete" />
+      <DeleteButton
+        onClick={() => setShoppingListItems([])}
+        text="delete"
+        dataTestid="deleteAllListItems"
+      />
     </Container>
   )
 

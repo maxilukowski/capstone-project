@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const ShoppingListItem = ({ listItem, onClick, testId }) => {
   return (
     <Container
-      data-testId={testId}
+      data-testid={testId}
       onClick={() => {
         onClick(listItem)
       }}
