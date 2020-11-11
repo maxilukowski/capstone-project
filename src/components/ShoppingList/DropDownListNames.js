@@ -28,7 +28,7 @@ const DropDownListNames = ({
         fontSize="20px"
         text="del"
         mr="15px"
-        // wieso geht hier {removeListName} nicht?
+        data-testid="delete-button"
         onClick={() =>
           removeListName(
             listNames,

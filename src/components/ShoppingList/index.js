@@ -33,14 +33,23 @@ const Index = () => {
         setShoppingListName={setShoppingListName}
         shoppingListName={shoppingListName}
       />
-      <ShoppingList shoppingListItems={uncheckedList} onClick={onItemClick} />
+      <ShoppingList
+        shoppingListItems={uncheckedList}
+        onClick={onItemClick}
+        testId="uncheckedListItems"
+      />
       {checkedList.length < 1 ? null : <StyledDiv>recently checked</StyledDiv>}
       <ShoppingList
+        testId="checkedListItems"
         opacity={0.7}
         shoppingListItems={checkedList}
         onClick={onItemClick}
       />
-      <DeleteButton onClick={() => setShoppingListItems([])} text="delete" />
+      <DeleteButton
+        onClick={() => setShoppingListItems([])}
+        text="delete"
+        dataTestid="deleteAllListItems"
+      />
     </Container>
   )
 

@@ -52,6 +52,9 @@ export function submitHandler(
   input
 ) {
   event.preventDefault()
+  if (input.length < 4) {
+    return
+  }
   setShoppingListName(input)
   setListNames([...listNames, input])
   setToggle(!toggle)

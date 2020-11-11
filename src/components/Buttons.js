@@ -1,17 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Button({ text, onClick, fontSize, mr }) {
+export default function Button({ text, onClick, fontSize, mr, dataTestid }) {
   return (
-    <ButtonStyled fontSize={fontSize} onClick={onClick} mr={mr}>
+    <ButtonStyled
+      fontSize={fontSize}
+      onClick={onClick}
+      mr={mr}
+      data-testid={dataTestid}
+    >
       {text}
     </ButtonStyled>
   )
 }
 
-export const DeleteButton = ({ text, onClick }) => {
+export const DeleteButton = ({ text, onClick, dataTestid }) => {
   return (
-    <StyledDeleteButton onClick={onClick} data-testid="button">
+    <StyledDeleteButton onClick={onClick} data-testid={dataTestid}>
       {text}
     </StyledDeleteButton>
   )

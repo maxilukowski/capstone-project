@@ -2,7 +2,7 @@ import React from 'react'
 import ShoppingListItem from './ShoppingListItem'
 import styled from 'styled-components'
 
-const ShoppingList = ({ shoppingListItems, onClick, opacity }) => {
+const ShoppingList = ({ shoppingListItems, onClick, opacity, testId }) => {
   return (
     <Container opacity={opacity}>
       {shoppingListItems.map((listItem) => (
@@ -10,6 +10,7 @@ const ShoppingList = ({ shoppingListItems, onClick, opacity }) => {
           key={listItem.id}
           listItem={listItem}
           onClick={onClick}
+          testId={testId}
         />
       ))}
     </Container>

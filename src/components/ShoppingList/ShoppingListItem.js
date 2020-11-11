@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ShoppingListItem = ({ listItem, onClick }) => {
+const ShoppingListItem = ({ listItem, onClick, testId }) => {
   return (
     <Container
+      data-testid={testId}
       onClick={() => {
         onClick(listItem)
       }}
     >
-      <div>{listItem.title}</div>
+      <div data-testid="shoppingListItem">{listItem.title}</div>
       <input type="checkbox" data-testid="shopping-list-item-checker" />
     </Container>
   )
