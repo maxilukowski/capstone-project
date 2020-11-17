@@ -25,7 +25,7 @@ const DropDownListNames = ({
         ))}
       </StyledSelect>
       <DeleteListNameButton
-        data-testid="delete-button"
+        dataTestid="deleteButton"
         onClick={() =>
           removeListName(
             listNames,
@@ -35,7 +35,10 @@ const DropDownListNames = ({
           )
         }
       />
-      <AddListNameButton onClick={() => setToggle(!toggle)} />
+      <AddListNameButton
+        dataTestid="addListNameButton"
+        onClick={() => setToggle(!toggle)}
+      />
     </Spacer>
   )
 }

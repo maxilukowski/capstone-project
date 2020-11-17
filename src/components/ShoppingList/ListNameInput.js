@@ -35,7 +35,7 @@ const ListNameInput = ({
         autoFocus
         maxLength="20"
       />
-      <AddListNameButton fontSize="20px" text="add" />
+      <AddListNameButton dataTestid="addListNameButton" />
     </StyledForm>
   )
 }
