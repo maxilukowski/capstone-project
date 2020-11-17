@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../Buttons'
+import { DeleteListNameButton, AddListNameButton } from '../Buttons'
 
 const DropDownListNames = ({
   listNames,
@@ -24,10 +24,7 @@ const DropDownListNames = ({
           </option>
         ))}
       </StyledSelect>
-      <Button
-        fontSize="20px"
-        text="del"
-        mr="15px"
+      <DeleteListNameButton
         data-testid="delete-button"
         onClick={() =>
           removeListName(
@@ -38,7 +35,7 @@ const DropDownListNames = ({
           )
         }
       />
-      <Button fontSize="20px" text="new" onClick={() => setToggle(!toggle)} />
+      <AddListNameButton onClick={() => setToggle(!toggle)} />
     </Spacer>
   )
 }
@@ -69,7 +66,7 @@ const StyledSelect = styled.select`
 `
 
 const Spacer = styled.div`
-  margin-bottom: 10px;
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
 `

@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect'
 describe('ListNameEditt0r.js', () => {
   let selectField
   let newListButton
-  let deleteButton
+  let DeleteListItemsButton
   let shoppingListName
   const listNames = ['listNameA', 'listNameB']
   beforeEach(() => {
@@ -21,18 +21,18 @@ describe('ListNameEditt0r.js', () => {
     )
     selectField = screen.getByTestId('dropdown-select-listnames')
     newListButton = screen.getByText('new')
-    deleteButton = screen.getByText('del')
+    DeleteListItemsButton = screen.getByText('del')
   })
   it('displays elements on initial render', () => {
     expect(selectField).toBeInTheDocument()
     expect(newListButton).toBeInTheDocument()
-    expect(deleteButton).toBeInTheDocument()
+    expect(DeleteListItemsButton).toBeInTheDocument()
   })
   it('toggles to input when buttonclick', () => {
     fireEvent.click(newListButton)
     const input = screen.getByPlaceholderText('e.g. farmer`s market')
     expect(input).toBeInTheDocument()
-    expect(deleteButton).not.toBeInTheDocument()
+    expect(DeleteListItemsButton).not.toBeInTheDocument()
   })
   it('reads and writes to localStorage', () => {
     const option1 = screen.getByText('listNameA')
@@ -50,6 +50,6 @@ describe('ListNameEditt0r.js', () => {
   })
   // fertigmachen
   it('removes key from localStorage', () => {
-    fireEvent.click(deleteButton)
+    fireEvent.click(DeleteListItemsButton)
   })
 })

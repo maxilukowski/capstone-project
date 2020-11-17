@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Buttons'
+import { AddListNameButton } from '../Buttons'
 import styled from 'styled-components'
 
 const ListNameInput = ({
@@ -35,7 +35,7 @@ const ListNameInput = ({
         autoFocus
         maxLength="20"
       />
-      <Button fontSize="20px" text="add" />
+      <AddListNameButton fontSize="20px" text="add" />
     </StyledForm>
   )
 }
@@ -52,7 +52,7 @@ export function submitHandler(
   input
 ) {
   event.preventDefault()
-  if (input.length < 4) {
+  if (input.length < 3) {
     return
   }
   setShoppingListName(input)
