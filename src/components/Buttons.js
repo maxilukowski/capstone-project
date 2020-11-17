@@ -1,20 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RiDeleteBack2Fill } from 'react-icons/ri'
-import { MdDeleteForever, MdAdd } from 'react-icons/md'
+import { MdDeleteForever, MdAdd, MdDeleteSweep } from 'react-icons/md'
 
-export default function Button({ text, onClick, fontSize, mr, dataTestid }) {
-  return (
-    <ButtonStyled
-      fontSize={fontSize}
-      onClick={onClick}
-      mr={mr}
-      data-testid={dataTestid}
-    >
-      {text}
-    </ButtonStyled>
-  )
-}
 export const DeleteListNameButton = ({ onClick, dataTestid }) => {
   return (
     <StyledEditListNameButton onClick={onClick} data-testid={dataTestid}>
@@ -34,7 +21,7 @@ export const AddListNameButton = ({ onClick, dataTestid }) => {
 export const DeleteListItemsButton = ({ onClick, dataTestid }) => {
   return (
     <StyledDeleteListItemsButton onClick={onClick} data-testid={dataTestid}>
-      <RiDeleteBack2Fill />
+      <MdDeleteSweep />
     </StyledDeleteListItemsButton>
   )
 }

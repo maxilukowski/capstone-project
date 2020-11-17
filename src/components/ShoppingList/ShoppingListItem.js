@@ -11,7 +11,7 @@ const ShoppingListItem = ({ listItem, onClick, testId }) => {
       }}
     >
       <div data-testid="shoppingListItem">{listItem.title}</div>
-      <MdCheck color="var(--secondary)" />
+      <MdCheck />
     </Container>
   )
 }

@@ -2,9 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 :root {
-    --primary: #3d405b;
-    --secondary: #81b29a;
-    --sand: #f4f1de;
+    --primary: #284b63;
+    --secondary: #d9d9d9;
+    --sand: #ffffff;
+    --checked: #353535;
     }
 
     * {
@@ -15,6 +16,7 @@ export default createGlobalStyle`
         height: 100%;
         margin: 0;
         background: var(--sand);
+        color:var(--checked);
         font-family:sans-serif;
     }
 `

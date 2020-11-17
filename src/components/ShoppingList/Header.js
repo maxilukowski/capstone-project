@@ -27,4 +27,6 @@ const Container = styled.div`
   min-height: 100px;
   top: 0;
   box-shadow: 0 0 10px var(--primary);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 `
