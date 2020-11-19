@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Header from './Header'
 import ShoppingList from './ShoppingList'
 import styled from 'styled-components'
-import { DeleteButton } from '../Buttons'
+import { DeleteListItemsButton } from '../Buttons'
 
 let idSuffix = 0
 
@@ -45,9 +45,8 @@ const Index = () => {
         shoppingListItems={checkedList}
         onClick={onItemClick}
       />
-      <DeleteButton
+      <DeleteListItemsButton
         onClick={() => setShoppingListItems([])}
-        text="delete"
         dataTestid="deleteAllListItems"
       />
     </Container>

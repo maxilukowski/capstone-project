@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MdCheck } from 'react-icons/md'
 
 const ShoppingListItem = ({ listItem, onClick, testId }) => {
   return (
@@ -10,7 +11,7 @@ const ShoppingListItem = ({ listItem, onClick, testId }) => {
       }}
     >
       <div data-testid="shoppingListItem">{listItem.title}</div>
-      <input type="checkbox" data-testid="shopping-list-item-checker" />
+      <MdCheck />
     </Container>
   )
 }

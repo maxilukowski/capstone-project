@@ -5,6 +5,7 @@
   "dependencies": {
     "@testing-library/user-event": "^7.2.1",
     "pretty": "^2.0.0",
+    "react-icons": "^3.11.0",
     "react-scripts": "^4.0.0",
     "styled-components": "^5.1.1"
   },

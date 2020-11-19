@@ -5,17 +5,18 @@ import '@testing-library/jest-dom/extend-expect'
 
 describe('Header.js', () => {
   let selectField
-  let deleteButton
+  let DeleteListNameButton
   let addButton
   beforeEach(() => {
     render(<Header />)
+    screen.debug()
     selectField = screen.getByText('shopping list')
-    deleteButton = screen.getByText('del')
-    addButton = screen.getByText('new')
+    DeleteListNameButton = screen.getByTestId('deleteListNameButton')
+    addButton = screen.getByTestId('addListNameButton')
   })
   test('if components are rendered', () => {
     expect(selectField).toBeInTheDocument()
-    expect(deleteButton).toBeInTheDocument()
+    expect(DeleteListNameButton).toBeInTheDocument()
     expect(addButton).toBeInTheDocument()
   })
 })

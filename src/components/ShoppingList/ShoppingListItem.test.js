@@ -16,12 +16,4 @@ describe('ShoppingListItem.js', () => {
     fireEvent.click(renderedListItem)
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
-  it('the checkbox checks and unchecks onClick', () => {
-    const checkBox = screen.getByTestId('shopping-list-item-checker')
-    expect(checkBox.checked).toBe(false)
-    fireEvent.click(checkBox)
-    expect(checkBox.checked).toBe(true)
-    fireEvent.click(checkBox)
-    expect(checkBox.checked).toBe(false)
-  })
 })

@@ -19,7 +19,7 @@ describe('DropDownListName', () => {
         setToggle={setToggle}
       />
     )
-    button = screen.getByText('new')
+    button = screen.getByTestId('addListNameButton')
   })
   it('changes the value via onChange', () => {
     const select = screen.getByTestId('dropdown-select-listnames')

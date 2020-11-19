@@ -1,44 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MdDeleteForever, MdAdd, MdDeleteSweep } from 'react-icons/md'
 
-export default function Button({ text, onClick, fontSize, mr, dataTestid }) {
+export const DeleteListNameButton = ({ onClick, dataTestid }) => {
   return (
-    <ButtonStyled
-      fontSize={fontSize}
-      onClick={onClick}
-      mr={mr}
-      data-testid={dataTestid}
-    >
-      {text}
-    </ButtonStyled>
+    <StyledEditListNameButton onClick={onClick} data-testid={dataTestid}>
+      <MdDeleteForever />
+    </StyledEditListNameButton>
   )
 }
 
-export const DeleteButton = ({ text, onClick, dataTestid }) => {
+export const AddListNameButton = ({ onClick, dataTestid }) => {
   return (
-    <StyledDeleteButton onClick={onClick} data-testid={dataTestid}>
-      {text}
-    </StyledDeleteButton>
+    <StyledEditListNameButton onClick={onClick} data-testid={dataTestid}>
+      <MdAdd />
+    </StyledEditListNameButton>
   )
 }
 
-const ButtonStyled = styled.button`
-  border-radius: 3px;
-  background: var(--secondary);
+export const DeleteListItemsButton = ({ onClick, dataTestid }) => {
+  return (
+    <StyledDeleteListItemsButton onClick={onClick} data-testid={dataTestid}>
+      <MdDeleteSweep />
+    </StyledDeleteListItemsButton>
+  )
+}
+
+const StyledEditListNameButton = styled.button`
+  background: var(--primary);
+  color: var(--secondary);
   border: none;
-  font-size: ${(props) => props.fontSize};
+  font-size: 30px;
   outline: none;
-  margin-right: ${(props) => props.mr};
+  margin-right: 15px;
+  padding: 0;
 `
 
-const StyledDeleteButton = styled.button`
-  border-radius: 3px;
-  background: var(--secondary);
+const StyledDeleteListItemsButton = styled.button`
   border: none;
-  font-size: ${(props) => props.fontSize};
+  background: var(--sand);
   outline: none;
-  font-size: 20px;
-  width: 20%;
+  font-size: 40px;
+  color: var(--secondary);
   position: fixed;
   bottom: 0;
   right: 0;

@@ -1,12 +1,12 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import ButtonS from '../Buttons'
+import { AddListNameButton } from '../Buttons'
 
 const ShoppingListItemForm = ({ onSubmit }) => {
   const input = useRef(null)
   return (
     <StyledForm
-      data-testid="test"
+      data-testid="shoppingListItemForm"
       onSubmit={(e) => formSubmit(e, onSubmit, input)}
     >
       <StyledInput
@@ -18,11 +18,7 @@ const ShoppingListItemForm = ({ onSubmit }) => {
         data-testid="shopping-listitem-input"
         required
       />
-      <ButtonS
-        dataTestid="shopping-listitem-form-button"
-        text="add"
-        fontSize="20px"
-      />
+      <AddListNameButton dataTestid="shopping-listitem-form-button" />
     </StyledForm>
   )
 }
@@ -49,4 +45,5 @@ const StyledInput = styled.input`
 const StyledForm = styled.form`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 `
