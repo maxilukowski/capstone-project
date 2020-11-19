@@ -6,7 +6,7 @@ const ShoppingListItemForm = ({ onSubmit }) => {
   const input = useRef(null)
   return (
     <StyledForm
-      data-testid="test"
+      data-testid="shoppingListItemForm"
       onSubmit={(e) => formSubmit(e, onSubmit, input)}
     >
       <StyledInput

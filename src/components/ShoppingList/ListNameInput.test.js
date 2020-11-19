@@ -10,7 +10,7 @@ describe('ListNameInput.js', () => {
   const setInput = jest.fn()
   beforeEach(() => {
     render(<ListNameInput setInput={setInput} input={input} />)
-    button = screen.getByText('add')
+    button = screen.getByTestId('addListNameButton')
     inputField = screen.getByPlaceholderText('e.g. farmer`s market')
   })
   it('renders an inputField and the button', () => {

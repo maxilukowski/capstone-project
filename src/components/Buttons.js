@@ -36,15 +36,6 @@ const StyledEditListNameButton = styled.button`
   padding: 0;
 `
 
-const ButtonStyled = styled.button`
-  border-radius: 3px;
-  background: var(--secondary);
-  border: none;
-  font-size: ${(props) => props.fontSize};
-  outline: none;
-  margin-right: ${(props) => props.mr};
-`
-
 const StyledDeleteListItemsButton = styled.button`
   border: none;
   background: var(--sand);

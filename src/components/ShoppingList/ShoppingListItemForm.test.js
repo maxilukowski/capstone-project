@@ -14,8 +14,8 @@ describe('ShoppingListItemForm.js', () => {
       handleSubmit = jest.fn()
       render(<ShoppingListItemForm onSubmit={handleSubmit} />)
       input = screen.getByPlaceholderText('I need..')
-      button = screen.getByText('add')
-      form = screen.getByTestId('test')
+      button = screen.getByTestId('shopping-listitem-form-button')
+      form = screen.getByTestId('shoppingListItemForm')
     })
     test('inputfield & button should be in the document', () => {
       expect(input).toBeInTheDocument()
