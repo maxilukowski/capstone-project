@@ -52,7 +52,9 @@ export function submitHandler(
   input
 ) {
   event.preventDefault()
-  if (input.length < 3) {
+  if (input.length < 3) return
+  if (listNames.includes(input)) {
+    alert(`there is already a list "${input}"`)
     return
   }
   setShoppingListName(input)
