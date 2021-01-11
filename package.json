@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^7.2.1",
+    "firebase-tools": "^8.16.2",
     "pretty": "^2.0.0",
     "react-icons": "^3.11.0",
     "react-scripts": "^4.0.0",
@@ -16,7 +17,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "firebase": "firebase",
+    "deploy": "rm -rf build && npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

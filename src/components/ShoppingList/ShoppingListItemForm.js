@@ -14,7 +14,7 @@ const ShoppingListItemForm = ({ onSubmit }) => {
         type="text"
         ref={input}
         name="input"
-        placeholder="I need.."
+        placeholder="We need.."
         data-testid="shopping-listitem-input"
         required
       />
